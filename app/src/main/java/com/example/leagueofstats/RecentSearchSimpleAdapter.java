@@ -1,16 +1,17 @@
 package com.example.leagueofstats;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.example.leagueofstats.displaySummoner.SummonerActivity;
 import com.example.leagueofstats.recentlySearchedDatabase.DatabaseManager;
 
 import java.util.ArrayList;
@@ -41,6 +42,18 @@ public class RecentSearchSimpleAdapter extends SimpleAdapter implements Filterab
         convertView = inflater.inflate(resource,null);
         TextView searchName = (TextView) convertView.findViewById(R.id.searchName);
         searchName.setText(filteredData.get(position).get("summonerName"));
+
+        searchName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, SummonerActivity.class);
+                i.putExtra("searchedSummoner",searchName.getText().toString());
+                context.startActivity(i);
+                ((MainActivity) context).finish();
+
+            }
+        });
+
 
         ImageButton delBtn = (ImageButton) convertView.findViewById(R.id.delBtn);
         delBtn.setOnClickListener(new View.OnClickListener() {

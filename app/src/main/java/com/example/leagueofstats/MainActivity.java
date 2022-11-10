@@ -2,12 +2,14 @@ package com.example.leagueofstats;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SearchView;
 
 
+import com.example.leagueofstats.displaySummoner.SummonerActivity;
 import com.example.leagueofstats.recentlySearchedDatabase.DatabaseManager;
 
 import java.sql.SQLDataException;
@@ -34,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        ArrayList<HashMap<String,String>> lista = dbManager.getSummoners();
+        ArrayList<HashMap<String,String>> searchedSummoners = dbManager.getSummoners();
 
 
-        RecentSearchSimpleAdapter searchAdapter = new RecentSearchSimpleAdapter(this,lista,R.layout.item_listview_layout,
+        RecentSearchSimpleAdapter searchAdapter = new RecentSearchSimpleAdapter(this,searchedSummoners,R.layout.item_listview_layout,
                 new String[]{"id","summonerName"},new int[]{R.id.searchName},dbManager);
 
 
@@ -59,10 +61,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 dbManager.insert(s);
+                Intent i = new Intent(getApplicationContext(), SummonerActivity.class);
+                i.putExtra("searchedSummoner",s);
+                startActivity(i);
+                finish();
                 return false;
             }
 
@@ -76,11 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-
-
-
-
 
 
 }
