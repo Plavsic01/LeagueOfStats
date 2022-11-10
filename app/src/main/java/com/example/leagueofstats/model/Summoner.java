@@ -1,4 +1,4 @@
-package com.example.leagueofstats.Model;
+package com.example.leagueofstats.model;
 
 public class Summoner {
 

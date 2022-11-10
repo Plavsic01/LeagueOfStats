@@ -6,12 +6,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.leagueofstats.MainActivity;
-import com.example.leagueofstats.Model.Summoner;
-import com.example.leagueofstats.Model.SummonerManager;
-import com.example.leagueofstats.Model.Summonerable;
+import com.example.leagueofstats.model.Summoner;
+import com.example.leagueofstats.model.SummonerManager;
+import com.example.leagueofstats.model.Summonerable;
 import com.example.leagueofstats.R;
 
 public class SummonerActivity extends AppCompatActivity implements Summonerable {

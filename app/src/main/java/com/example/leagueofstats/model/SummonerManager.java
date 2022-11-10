@@ -1,4 +1,4 @@
-package com.example.leagueofstats.Model;
+package com.example.leagueofstats.model;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -24,7 +24,7 @@ public class SummonerManager {
     public SummonerManager(Context ctx){
         this.ctx = ctx;
     }
-    
+
     // napraviti file sa konstantama tj url-ovima
 
     public void fetchSummonerInfo(String summonerName){
