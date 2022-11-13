@@ -1,37 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".displaySummoner.SummonerActivity" >
+    tools:context=".displaySummoner.SummonerActivity">
 
-<!--    <ImageView-->
-<!--        android:id="@+id/summonerIcon"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginEnd="100dp"-->
-<!--        android:layout_weight="1"-->
-<!--        android:cropToPadding="false"-->
-<!--        tools:srcCompat="@tools:sample/avatars" />-->
-<!--    -->
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/summonerIcon"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_weight="1"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="52dp"
         app:civ_border_color="@color/white"
-        android:layout_marginTop="40dp"
-        app:civ_border_width="2dp" />
-
+        app:civ_border_width="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:id="@+id/linearLayout"
+        android:layout_width="185dp"
+        android:layout_height="142dp"
+        android:layout_marginTop="44dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toEndOf="@+id/summonerIcon"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/summonerLabel"
@@ -47,17 +43,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:paddingBottom="10dp"
+            android:paddingBottom="20dp"
             android:text="Level: 40" />
 
         <Button
             android:id="@+id/rankedInfo"
-            android:layout_width="120dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/ranked_info" />
 
     </LinearLayout>
 
-</LinearLayout>
+    <FrameLayout
+        android:layout_width="409dp"
+        android:layout_height="543dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/matchRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,22 +1,36 @@
 package com.example.leagueofstats.displaySummoner;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+
 import android.widget.ImageView;
 
 import com.example.leagueofstats.MainActivity;
+import com.example.leagueofstats.model.Match;
+import com.example.leagueofstats.model.MatchCallBack;
+import com.example.leagueofstats.model.MatchMananger;
 import com.example.leagueofstats.model.Summoner;
 import com.example.leagueofstats.model.SummonerManager;
 import com.example.leagueofstats.model.Summonerable;
 import com.example.leagueofstats.R;
 
+import java.util.ArrayList;
+
 public class SummonerActivity extends AppCompatActivity implements Summonerable {
 
     private ImageView summonerIcon;
-    private SummonerManager manager = new SummonerManager(this);
+    private SummonerManager summonerManager = new SummonerManager(this);
+    private MatchMananger matchMananger = new MatchMananger(this);
+
+    private ArrayList<Match> matchArray = new ArrayList<>();
+
+    SummonerRecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +41,14 @@ public class SummonerActivity extends AppCompatActivity implements Summonerable 
 
         Intent i = getIntent();
         String sumName = i.getStringExtra("searchedSummoner");
-        manager.delegate = this;
-        manager.fetchSummonerInfo(sumName);
+        summonerManager.delegate = this;
+        summonerManager.fetchSummonerInfo(sumName);
 
+        RecyclerView recyclerView = findViewById(R.id.matchRecyclerView);
+        adapter = new SummonerRecyclerViewAdapter(this,matchArray);
+        recyclerView.setAdapter(adapter);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
     }
 
     @Override
@@ -39,16 +58,32 @@ public class SummonerActivity extends AppCompatActivity implements Summonerable 
         finish();
     }
 
+
+
     @Override
     public void summonerData(Summoner summoner) {
-        System.out.println(summoner);
-        manager.fetchSummonerIcon(summoner.getProfileIconId());
+        summonerManager.fetchSummonerIcon(summoner.getProfileIconId());
+
+
+        matchMananger.fetchMatchIds(summoner,new MatchCallBack() {
+            @Override
+            public void onSuccess(Match result) {
+                matchArray.add(result);
+                adapter.notifyDataSetChanged();
+
+
+            }
+
+            @Override
+            public void onError(String error) {
+                System.out.println(error);
+            }
+        });
 
     }
 
     @Override
     public void summonerIcon(Bitmap icon) {
         summonerIcon.setImageBitmap(icon);
-        System.out.println(icon);
     }
 }
