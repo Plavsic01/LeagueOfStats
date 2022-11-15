@@ -1,4 +1,6 @@
-package com.example.leagueofstats.model;
+package com.example.leagueofstats.model.match;
+
+import com.example.leagueofstats.model.summoner.Summoner;
 
 import java.util.ArrayList;
 

@@ -1,7 +1,6 @@
 package com.example.leagueofstats.displaySummoner;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,12 +11,13 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.example.leagueofstats.MainActivity;
-import com.example.leagueofstats.model.Match;
-import com.example.leagueofstats.model.MatchCallBack;
-import com.example.leagueofstats.model.MatchMananger;
-import com.example.leagueofstats.model.Summoner;
-import com.example.leagueofstats.model.SummonerManager;
-import com.example.leagueofstats.model.Summonerable;
+import com.example.leagueofstats.model.match.Match;
+import com.example.leagueofstats.model.match.MatchCallBack;
+import com.example.leagueofstats.model.match.MatchMananger;
+import com.example.leagueofstats.model.ranked.RankedManager;
+import com.example.leagueofstats.model.summoner.Summoner;
+import com.example.leagueofstats.model.summoner.SummonerManager;
+import com.example.leagueofstats.model.summoner.Summonerable;
 import com.example.leagueofstats.R;
 
 import java.util.ArrayList;
@@ -28,6 +28,9 @@ public class SummonerActivity extends AppCompatActivity implements Summonerable 
     private SummonerManager summonerManager = new SummonerManager(this);
     private MatchMananger matchMananger = new MatchMananger(this);
 
+    RankedManager m = new RankedManager(this);
+
+
     private ArrayList<Match> matchArray = new ArrayList<>();
 
     SummonerRecyclerViewAdapter adapter;
@@ -36,6 +39,8 @@ public class SummonerActivity extends AppCompatActivity implements Summonerable 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summoner);
+
+        m.fetchRankedStats();
 
         summonerIcon = findViewById(R.id.summonerIcon);
 
@@ -70,8 +75,6 @@ public class SummonerActivity extends AppCompatActivity implements Summonerable 
             public void onSuccess(Match result) {
                 matchArray.add(result);
                 adapter.notifyDataSetChanged();
-
-
             }
 
             @Override

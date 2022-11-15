@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.leagueofstats.R;
-import com.example.leagueofstats.model.Match;
+import com.example.leagueofstats.model.match.Match;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -43,14 +43,14 @@ public class SummonerRecyclerViewAdapter extends RecyclerView.Adapter<SummonerRe
             matches.sort(c);
         }
 
-        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/champion/" + matches.get(position).getCurrentPlayer().getChampionName() + ".png").into(holder.champIcon);
-        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem0() + ".png").into(holder.item0);
-        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem1() + ".png").into(holder.item1);
-        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem2() + ".png").into(holder.item2);
-        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem3() + ".png").into(holder.item3);
-        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem4() + ".png").into(holder.item4);
-        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem5() + ".png").into(holder.item5);
-        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem6() + ".png").into(holder.item6);
+//        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/champion/" + matches.get(position).getCurrentPlayer().getChampionName() + ".png").into(holder.champIcon);
+//        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem0() + ".png").into(holder.item0);
+//        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem1() + ".png").into(holder.item1);
+//        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem2() + ".png").into(holder.item2);
+//        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem3() + ".png").into(holder.item3);
+//        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem4() + ".png").into(holder.item4);
+//        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem5() + ".png").into(holder.item5);
+//        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem6() + ".png").into(holder.item6);
 
     }
 

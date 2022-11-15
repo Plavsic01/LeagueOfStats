@@ -1,4 +1,4 @@
-package com.example.leagueofstats.model;
+package com.example.leagueofstats.model.summoner;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -38,11 +38,13 @@ public class SummonerManager {
                     JSONObject jsonObject = new JSONObject(response);
 
                     String puuid = jsonObject.getString("puuid");
+                    String id = jsonObject.getString("id");
                     String name = jsonObject.getString("name");
                     String summonerLevel = jsonObject.getString("summonerLevel");
                     String profileIconId = jsonObject.getString("profileIconId");
 
-                    Summoner summoner = new Summoner(puuid,name,summonerLevel,profileIconId);
+                    Summoner summoner = new Summoner(puuid,id,name,summonerLevel,profileIconId);
+                    System.out.println(summoner);
 
                     delegate.summonerData(summoner);
 

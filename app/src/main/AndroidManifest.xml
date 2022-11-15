@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,9 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LeagueOfStats"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name="com.example.leagueofstats.displaySummoner.SummonerActivity"
+            android:name=".displaySummoner.RankedActivity"
+            android:exported="false"
+            android:label="@string/title_activity_ranked"
+            android:theme="@style/Theme.LeagueOfStats.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".displaySummoner.SummonerActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

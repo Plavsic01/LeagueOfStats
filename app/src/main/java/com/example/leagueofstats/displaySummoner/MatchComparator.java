@@ -1,6 +1,6 @@
 package com.example.leagueofstats.displaySummoner;
 
-import com.example.leagueofstats.model.Match;
+import com.example.leagueofstats.model.match.Match;
 
 import java.util.Comparator;
 

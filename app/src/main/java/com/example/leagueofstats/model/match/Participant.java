@@ -1,4 +1,4 @@
-package com.example.leagueofstats.model;
+package com.example.leagueofstats.model.match;
 
 public class Participant {
 
