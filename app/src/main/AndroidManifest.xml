@@ -17,15 +17,6 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".displaySummoner.RankedActivity"
-            android:exported="false"
-            android:label="@string/title_activity_ranked"
-            android:theme="@style/Theme.LeagueOfStats.NoActionBar">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".displaySummoner.SummonerActivity"
             android:exported="false">
             <meta-data

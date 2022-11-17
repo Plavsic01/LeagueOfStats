@@ -8,22 +8,26 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.leagueofstats.R;
 import com.example.leagueofstats.model.match.Match;
+import com.example.leagueofstats.model.match.SelectListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class SummonerRecyclerViewAdapter extends RecyclerView.Adapter<SummonerRecyclerViewAdapter.MyViewHolder>{
 
-    Context ctx;
-    ArrayList<Match> matches;
+    private Context ctx;
+    private ArrayList<Match> matches;
+    private SelectListener listener;
 
-    public SummonerRecyclerViewAdapter(Context ctx, ArrayList<Match> matches){
+    public SummonerRecyclerViewAdapter(Context ctx, ArrayList<Match> matches,SelectListener listener){
         this.ctx = ctx;
         this.matches = matches;
+        this.listener = listener;
     }
 
     @NonNull
@@ -35,6 +39,7 @@ public class SummonerRecyclerViewAdapter extends RecyclerView.Adapter<SummonerRe
         return myViewHolder;
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         MatchComparator c = new MatchComparator();
@@ -43,14 +48,21 @@ public class SummonerRecyclerViewAdapter extends RecyclerView.Adapter<SummonerRe
             matches.sort(c);
         }
 
-//        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/champion/" + matches.get(position).getCurrentPlayer().getChampionName() + ".png").into(holder.champIcon);
-//        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem0() + ".png").into(holder.item0);
-//        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem1() + ".png").into(holder.item1);
-//        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem2() + ".png").into(holder.item2);
-//        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem3() + ".png").into(holder.item3);
-//        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem4() + ".png").into(holder.item4);
-//        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem5() + ".png").into(holder.item5);
-//        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem6() + ".png").into(holder.item6);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onItemClicked(matches.get(holder.getAdapterPosition()));
+            }
+        });
+
+        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/champion/" + matches.get(position).getCurrentPlayer().getChampionName() + ".png").into(holder.champIcon);
+        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem0() + ".png").into(holder.item0);
+        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem1() + ".png").into(holder.item1);
+        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem2() + ".png").into(holder.item2);
+        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem3() + ".png").into(holder.item3);
+        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem4() + ".png").into(holder.item4);
+        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem5() + ".png").into(holder.item5);
+        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.18.1/img/item/" + matches.get(position).getCurrentPlayer().getItem6() + ".png").into(holder.item6);
 
     }
 
@@ -61,6 +73,8 @@ public class SummonerRecyclerViewAdapter extends RecyclerView.Adapter<SummonerRe
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
+        public CardView cardView;
+
         public ImageView champIcon;
         public ImageView item0;
         public ImageView item1;
@@ -69,6 +83,7 @@ public class SummonerRecyclerViewAdapter extends RecyclerView.Adapter<SummonerRe
         public ImageView item4;
         public ImageView item5;
         public ImageView item6;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -81,6 +96,8 @@ public class SummonerRecyclerViewAdapter extends RecyclerView.Adapter<SummonerRe
             item4 = itemView.findViewById(R.id.item4);
             item5 = itemView.findViewById(R.id.item5);
             item6 = itemView.findViewById(R.id.item6);
+
+            cardView = itemView.findViewById(R.id.cardView);
 
         }
     }

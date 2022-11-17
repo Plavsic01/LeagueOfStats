@@ -1,14 +1,11 @@
 package com.example.leagueofstats.model.summoner;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.widget.ImageView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -65,24 +62,24 @@ public class SummonerManager {
 
     }
 
-    public void fetchSummonerIcon(String profileIconId){
-        String url = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img/profileicon/" + profileIconId + ".png";
-        RequestQueue requestQueue = Volley.newRequestQueue(ctx);
-        ImageRequest imageRequest = new ImageRequest(url, new Response.Listener<Bitmap>() {
-            @Override
-            public void onResponse(Bitmap response) {
-                delegate.summonerIcon(response);
-            }
-        }, 0, 0, ImageView.ScaleType.CENTER_CROP, null, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-    });
-
-        requestQueue.add(imageRequest);
-
-    }
+//    public void fetchSummonerIcon(String profileIconId){
+//        String url = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img/profileicon/" + profileIconId + ".png";
+//        RequestQueue requestQueue = Volley.newRequestQueue(ctx);
+//        ImageRequest imageRequest = new ImageRequest(url, new Response.Listener<Bitmap>() {
+//            @Override
+//            public void onResponse(Bitmap response) {
+//                delegate.summonerIcon(response);
+//            }
+//        }, 0, 0, ImageView.ScaleType.CENTER_CROP, null, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                error.printStackTrace();
+//            }
+//    });
+//
+//        requestQueue.add(imageRequest);
+//
+//    }
 
 
 }

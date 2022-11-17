@@ -1,6 +1,8 @@
 package com.example.leagueofstats.model.summoner;
 
-public class Summoner {
+import java.io.Serializable;
+
+public class Summoner implements Serializable {
 
     private String puuid;
     private String id;

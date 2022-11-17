@@ -19,13 +19,7 @@ import java.util.ArrayList;
 
 public class MatchMananger {
 
-    private Context ctx;
-
-    public MatchMananger(Context ctx) {
-        this.ctx = ctx;
-    }
-
-    public void fetchMatchIds(Summoner summoner, final MatchCallBack callback){
+    public static void fetchMatches(Summoner summoner, Context ctx,final MatchCallBack callback){
         RequestQueue queue = Volley.newRequestQueue(ctx);
         String url = "https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/_7_yt8hrSDt4E-0kjGW0NartB5qHSBEGa6ZMSMTmN2I5Sy0A_wh4HplWgjY9xut7v6kZ5gfvTGHyLg/ids?start=0&count=10&api_key=RGAPI-455b8388-a653-4a2d-8c68-e82c472934a0";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -35,7 +29,7 @@ public class MatchMananger {
                     JSONArray jsonArray = new JSONArray(response);
                     for(int i = 0; i < jsonArray.length();i++){
 
-                        fetchMatch(summoner,(String) jsonArray.get(i), new MatchCallBack() {
+                        fetchMatch(summoner,ctx,(String) jsonArray.get(i), new MatchCallBack() {
                             @Override
                             public void onSuccess(Match result) {
                                 callback.onSuccess(result);
@@ -64,7 +58,7 @@ public class MatchMananger {
     }
 
 
-    public void fetchMatch(Summoner summoner,String matchId,final MatchCallBack callback){
+    private static void fetchMatch(Summoner summoner,Context ctx,String matchId,final MatchCallBack callback){
         RequestQueue queue = Volley.newRequestQueue(ctx);
         String url = "https://europe.api.riotgames.com/lol/match/v5/matches/" + matchId + "?api_key=RGAPI-455b8388-a653-4a2d-8c68-e82c472934a0";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {

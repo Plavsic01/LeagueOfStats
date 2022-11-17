@@ -22,7 +22,7 @@ public class RankedManager {
         this.ctx = ctx;
     }
 //    final MatchCallBack callBack
-    public void fetchRankedStats(){
+    public void fetchRankedStats(final RankedCallBack callBack){
         RequestQueue queue = Volley.newRequestQueue(ctx);
         String url = "https://eun1.api.riotgames.com/lol/league/v4/entries/by-summoner/sQ_90HT6gmm62XNH8TM8JT7tbRjAmTX1seewXWSfy9CLpiU?api_key=RGAPI-455b8388-a653-4a2d-8c68-e82c472934a0";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -30,11 +30,13 @@ public class RankedManager {
             public void onResponse(String response) {
                 try {
                     JSONArray jsonArray = new JSONArray(response);
-                    System.out.println(jsonArray);
+//                    System.out.println(jsonArray);
+                   callBack.onFetchComplete(jsonArray);
 
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+//                    callBack.onError("error");
                 }
 
 
