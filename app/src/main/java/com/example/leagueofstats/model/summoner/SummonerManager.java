@@ -8,6 +8,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.leagueofstats.Constants;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,11 +23,10 @@ public class SummonerManager {
         this.ctx = ctx;
     }
 
-    // napraviti file sa konstantama tj url-ovima
 
     public void fetchSummonerInfo(String summonerName){
         RequestQueue queue = Volley.newRequestQueue(ctx);
-        String url = "https://eun1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonerName + "?api_key=RGAPI-455b8388-a653-4a2d-8c68-e82c472934a0";
+        String url = Constants.Summoner.SUMMONER_URL + summonerName + "?api_key=" + Constants.API_KEY;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -61,25 +61,6 @@ public class SummonerManager {
        queue.add(stringRequest);
 
     }
-
-//    public void fetchSummonerIcon(String profileIconId){
-//        String url = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img/profileicon/" + profileIconId + ".png";
-//        RequestQueue requestQueue = Volley.newRequestQueue(ctx);
-//        ImageRequest imageRequest = new ImageRequest(url, new Response.Listener<Bitmap>() {
-//            @Override
-//            public void onResponse(Bitmap response) {
-//                delegate.summonerIcon(response);
-//            }
-//        }, 0, 0, ImageView.ScaleType.CENTER_CROP, null, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                error.printStackTrace();
-//            }
-//    });
-//
-//        requestQueue.add(imageRequest);
-//
-//    }
 
 
 }

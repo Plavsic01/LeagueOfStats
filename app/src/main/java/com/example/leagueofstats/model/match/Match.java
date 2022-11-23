@@ -2,9 +2,10 @@ package com.example.leagueofstats.model.match;
 
 import com.example.leagueofstats.model.summoner.Summoner;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Match {
+public class Match implements Serializable {
 
     private int gameCreation;
     private int gameDuration;

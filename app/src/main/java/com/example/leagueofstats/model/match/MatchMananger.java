@@ -8,6 +8,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.leagueofstats.Constants;
 import com.example.leagueofstats.model.summoner.Summoner;
 
 import org.json.JSONArray;
@@ -21,7 +22,7 @@ public class MatchMananger {
 
     public static void fetchMatches(Summoner summoner, Context ctx,final MatchCallBack callback){
         RequestQueue queue = Volley.newRequestQueue(ctx);
-        String url = "https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/_7_yt8hrSDt4E-0kjGW0NartB5qHSBEGa6ZMSMTmN2I5Sy0A_wh4HplWgjY9xut7v6kZ5gfvTGHyLg/ids?start=0&count=10&api_key=RGAPI-455b8388-a653-4a2d-8c68-e82c472934a0";
+        String url = Constants.Match.ALL_MATCHES_URL + summoner.getPuuid() + "/ids?start=0&count=10&api_key=" + Constants.API_KEY;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -60,7 +61,7 @@ public class MatchMananger {
 
     private static void fetchMatch(Summoner summoner,Context ctx,String matchId,final MatchCallBack callback){
         RequestQueue queue = Volley.newRequestQueue(ctx);
-        String url = "https://europe.api.riotgames.com/lol/match/v5/matches/" + matchId + "?api_key=RGAPI-455b8388-a653-4a2d-8c68-e82c472934a0";
+        String url = Constants.Match.MATCH_URL + matchId + "?api_key=" + Constants.API_KEY;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

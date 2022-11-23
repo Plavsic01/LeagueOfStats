@@ -1,4 +1,4 @@
-package com.example.leagueofstats.displaySummoner;
+package com.example.leagueofstats.model.match;
 
 import com.example.leagueofstats.model.match.Match;
 

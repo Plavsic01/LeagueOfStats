@@ -8,7 +8,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.leagueofstats.model.match.MatchCallBack;
+import com.example.leagueofstats.Constants;
+import com.example.leagueofstats.model.summoner.Summoner;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,27 +17,39 @@ import org.json.JSONObject;
 
 public class RankedManager {
 
-    private Context ctx;
 
-    public RankedManager(Context ctx) {
-        this.ctx = ctx;
-    }
-//    final MatchCallBack callBack
-    public void fetchRankedStats(final RankedCallBack callBack){
+    public static void fetchRankedStats(Summoner summoner, Context ctx, final RankedCallBack callBack){
         RequestQueue queue = Volley.newRequestQueue(ctx);
-        String url = "https://eun1.api.riotgames.com/lol/league/v4/entries/by-summoner/sQ_90HT6gmm62XNH8TM8JT7tbRjAmTX1seewXWSfy9CLpiU?api_key=RGAPI-455b8388-a653-4a2d-8c68-e82c472934a0";
+        String url = Constants.Ranked.RANKED_URL + summoner.getId() + "?api_key=" + Constants.API_KEY;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONArray jsonArray = new JSONArray(response);
-//                    System.out.println(jsonArray);
-                   callBack.onFetchComplete(jsonArray);
+
+                    if(jsonArray.length() != 0){
+                        for(int i = 0; i < jsonArray.length(); i++){
+                            JSONObject ranked = jsonArray.getJSONObject(i);
+                            String queueType = ranked.getString("queueType");
+                            String leaguePoints = ranked.getString("leaguePoints");
+                            String tier = ranked.getString("tier");
+                            String rank = ranked.getString("rank");
+                            int wins = ranked.getInt("wins");
+                            int losses = ranked.getInt("losses");
+                            Ranked rankedInfo = new Ranked(queueType,tier,rank,leaguePoints,wins,losses);
+                            callBack.onSuccess(rankedInfo);
+                        }
+                    }else {
+                        Ranked rankedInfo = new Ranked("Unranked","","","0",0,0);
+                        callBack.onSuccess(rankedInfo);
+                    }
+
+
 
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-//                    callBack.onError("error");
+                    callBack.onError("error");
                 }
 
 

@@ -1,5 +1,6 @@
 package com.example.leagueofstats.displaySummoner;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,10 +8,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.leagueofstats.Constants;
 import com.example.leagueofstats.R;
+import com.example.leagueofstats.displayRanked.RankedActivity;
 import com.example.leagueofstats.model.summoner.Summoner;
 import com.squareup.picasso.Picasso;
 
@@ -21,9 +25,10 @@ public class SummonerFragment extends Fragment {
     private ImageView summonerIcon;
     private TextView summonerName;
     private TextView summonerLevel;
+    private Button rankedInfo;
 
 
-    private Summoner summonerData;
+    private Summoner summoner;
 
     public SummonerFragment() {}
 
@@ -39,7 +44,7 @@ public class SummonerFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            summonerData = (Summoner) getArguments().getSerializable(SUMMONER);
+            summoner = (Summoner) getArguments().getSerializable(SUMMONER);
         }
     }
 
@@ -52,10 +57,22 @@ public class SummonerFragment extends Fragment {
         summonerIcon = view.findViewById(R.id.summonerIcon);
         summonerName = view.findViewById(R.id.summonerName);
         summonerLevel = view.findViewById(R.id.summonerLevel);
+        rankedInfo = view.findViewById(R.id.rankedInfoBtn);
 
-        summonerName.setText(summonerData.getName());
-        summonerLevel.setText(summonerData.getSummonerLevel());
-        Picasso.get().load("http://ddragon.leagueoflegends.com/cdn/12.21.1/img/profileicon/" + summonerData.getProfileIconId() + ".png").into(summonerIcon);
+        // rankedInfo je stavljen na GONE u designeru
+        rankedInfo.setVisibility(View.VISIBLE);
+
+        summonerName.setText(summoner.getName());
+        summonerLevel.setText(summoner.getSummonerLevel());
+        rankedInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent rankedIntent = new Intent(getContext(), RankedActivity.class);
+                rankedIntent.putExtra("summoner",summoner);
+                startActivity(rankedIntent);
+            }
+        });
+        Picasso.get().load(Constants.Summoner.SUMMONER_ICON_URL + summoner.getProfileIconId() + ".png").into(summonerIcon);
 
         return view;
     }

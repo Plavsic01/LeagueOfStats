@@ -32,24 +32,24 @@
                 android:id="@+id/summonerName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:text="Atario Vanix" />
+                android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/summonerLevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:text="Level: 40" />
+                android:layout_weight="1" />
 
             <Button
                 android:id="@+id/rankedInfoBtn"
                 android:layout_width="168dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/ranked_info" />
+                android:text="@string/ranked_info"
+                android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>
 

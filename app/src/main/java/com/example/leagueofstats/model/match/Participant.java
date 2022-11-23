@@ -1,6 +1,8 @@
 package com.example.leagueofstats.model.match;
 
-public class Participant {
+import java.io.Serializable;
+
+public class Participant implements Serializable {
 
     private String summonerName;
     private String champLevel;
