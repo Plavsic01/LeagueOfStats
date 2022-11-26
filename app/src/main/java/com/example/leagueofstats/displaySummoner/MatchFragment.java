@@ -27,7 +27,7 @@ public class MatchFragment extends Fragment implements SelectListener {
     private ArrayList<Match> matches = new ArrayList<>();
 
     private Summoner summoner;
-    private SummonerRecyclerViewAdapter summonerRecyclerViewAdapter;
+    private MatchRecyclerViewAdapter matchRecyclerViewAdapter;
 
     public MatchFragment() {}
 
@@ -52,11 +52,11 @@ public class MatchFragment extends Fragment implements SelectListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_match_recycler, container, false);
+        View view = inflater.inflate(R.layout.fragment_match, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.matchRecyclerView);
 
-        summonerRecyclerViewAdapter = new SummonerRecyclerViewAdapter(getContext(),matches,this);
-        recyclerView.setAdapter(summonerRecyclerViewAdapter);
+        matchRecyclerViewAdapter = new MatchRecyclerViewAdapter(getContext(),matches,this);
+        recyclerView.setAdapter(matchRecyclerViewAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         fetchMatches();
@@ -69,7 +69,7 @@ public class MatchFragment extends Fragment implements SelectListener {
             @Override
             public void onSuccess(Match result) {
                 matches.add(result);
-                summonerRecyclerViewAdapter.notifyDataSetChanged();
+                matchRecyclerViewAdapter.notifyDataSetChanged();
             }
 
             @Override

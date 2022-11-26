@@ -40,7 +40,7 @@ public class RankedManager {
                             callBack.onSuccess(rankedInfo);
                         }
                     }else {
-                        Ranked rankedInfo = new Ranked("Unranked","","","0",0,0);
+                        Ranked rankedInfo = new Ranked("Solo Queue Unranked","Flex Unranked","","0",0,0);
                         callBack.onSuccess(rankedInfo);
                     }
 

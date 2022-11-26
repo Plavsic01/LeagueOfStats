@@ -20,13 +20,13 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class SummonerRecyclerViewAdapter extends RecyclerView.Adapter<SummonerRecyclerViewAdapter.MyViewHolder>{
+public class MatchRecyclerViewAdapter extends RecyclerView.Adapter<MatchRecyclerViewAdapter.MyViewHolder>{
 
     private Context ctx;
     private ArrayList<Match> matches;
     private SelectListener listener;
 
-    public SummonerRecyclerViewAdapter(Context ctx, ArrayList<Match> matches,SelectListener listener){
+    public MatchRecyclerViewAdapter(Context ctx, ArrayList<Match> matches, SelectListener listener){
         this.ctx = ctx;
         this.matches = matches;
         this.listener = listener;
@@ -34,7 +34,7 @@ public class SummonerRecyclerViewAdapter extends RecyclerView.Adapter<SummonerRe
 
     @NonNull
     @Override
-    public SummonerRecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MatchRecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(ctx);
         View contactView = inflater.inflate(R.layout.recycler_view_match_row,parent,false);
         MyViewHolder myViewHolder = new MyViewHolder(contactView);
