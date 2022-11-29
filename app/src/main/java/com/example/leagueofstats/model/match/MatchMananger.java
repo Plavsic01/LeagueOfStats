@@ -22,7 +22,7 @@ public class MatchMananger {
 
     public static void fetchMatches(Summoner summoner, Context ctx,final MatchCallBack callback){
         RequestQueue queue = Volley.newRequestQueue(ctx);
-        String url = Constants.Match.ALL_MATCHES_URL + summoner.getPuuid() + "/ids?start=0&count=10&api_key=" + Constants.API_KEY;
+        String url = Constants.Match.ALL_MATCHES_URL + summoner.getPuuid() + "/ids?start=0&count=20&api_key=" + Constants.API_KEY;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -93,8 +93,8 @@ public class MatchMananger {
                         int minionsKilled = participant.getInt("totalMinionsKilled");
                         int neutralMinionsKilled = participant.getInt("neutralMinionsKilled");
 
-                        String summoner1Id = participant.getString("summoner1Id");
-                        String summoner2Id = participant.getString("summoner2Id");
+                        int summoner1Id = participant.getInt("summoner1Id");
+                        int summoner2Id = participant.getInt("summoner2Id");
 
                         Boolean win = participant.getBoolean("win");
 

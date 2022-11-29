@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="7dp"
+        app:cardMaxElevation="7dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/summonerD"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                    <ImageView
+                        android:id="@+id/summonerF"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/summonerIcon"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:paddingLeft="1dp"
+                        android:paddingRight="1dp"
+                        tools:srcCompat="@tools:sample/avatars" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/detailsItem0"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="0"
+                        android:paddingLeft="1dp"
+                        android:paddingRight="1dp"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                    <ImageView
+                        android:id="@+id/detailsItem1"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="0"
+                        android:paddingLeft="1dp"
+                        android:paddingRight="1dp"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                    <ImageView
+                        android:id="@+id/detailsItem2"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="0"
+                        android:paddingLeft="1dp"
+                        android:paddingRight="1dp"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                    <ImageView
+                        android:id="@+id/detailsItem3"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="0"
+                        android:paddingLeft="1dp"
+                        android:paddingRight="1dp"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                    <ImageView
+                        android:id="@+id/detailsItem4"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="0"
+                        android:paddingLeft="1dp"
+                        android:paddingRight="1dp"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                    <ImageView
+                        android:id="@+id/detailsItem5"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0"
+                        android:paddingLeft="1dp"
+                        android:paddingRight="1dp"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                    <ImageView
+                        android:id="@+id/detailsItem6"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="0"
+                        android:paddingLeft="1dp"
+                        android:paddingRight="1dp"
+                        tools:srcCompat="@tools:sample/avatars" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/sumName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-black" />
+
+                <TextView
+                    android:id="@+id/killsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-black" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=" / " />
+
+                <TextView
+                    android:id="@+id/deathsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-black" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=" / " />
+
+                <TextView
+                    android:id="@+id/assistsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-black" />
+
+                <TextView
+                    android:id="@+id/minionsKilled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-black" />
+
+                <TextView
+                    android:id="@+id/goldEarned"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-black" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

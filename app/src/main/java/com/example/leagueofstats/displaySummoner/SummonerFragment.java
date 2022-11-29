@@ -63,7 +63,7 @@ public class SummonerFragment extends Fragment {
         rankedInfo.setVisibility(View.VISIBLE);
 
         summonerName.setText(summoner.getName());
-        summonerLevel.setText(summoner.getSummonerLevel());
+        summonerLevel.setText("Level: " + summoner.getSummonerLevel());
         rankedInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

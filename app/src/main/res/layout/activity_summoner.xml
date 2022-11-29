@@ -18,7 +18,7 @@
     <FrameLayout
         android:id="@+id/matchContainer"
         android:layout_width="409dp"
-        android:layout_height="543dp" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>
 

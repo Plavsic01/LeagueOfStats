@@ -12,8 +12,8 @@ public class Participant implements Serializable {
     private String assists;
     private int goldEarned;
     private int totalMinionsKilled;
-    private String summoner1Id;
-    private String summoner2Id;
+    private int summoner1Id;
+    private int summoner2Id;
     private boolean win;
 
     private int item0;
@@ -25,7 +25,7 @@ public class Participant implements Serializable {
     private int item6;
 
 
-    public Participant(String summonerName, String champLevel, String championName, String kills, String deaths, String assists, int goldEarned, int totalMinionsKilled, String summoner1Id, String summoner2Id, boolean win, int item0, int item1, int item2, int item3, int item4, int item5, int item6) {
+    public Participant(String summonerName, String champLevel, String championName, String kills, String deaths, String assists, int goldEarned, int totalMinionsKilled, int summoner1Id, int summoner2Id, boolean win, int item0, int item1, int item2, int item3, int item4, int item5, int item6) {
         this.summonerName = summonerName;
         this.champLevel = champLevel;
         this.championName = championName;
@@ -46,147 +46,136 @@ public class Participant implements Serializable {
         this.item6 = item6;
     }
 
-    public String getSummonerName() {
-        return summonerName;
+
+    private String getSummonerSpellName(int summonerSpellId){
+        String summonerSpellName = "";
+        switch (summonerSpellId){
+            case 1:
+                summonerSpellName = "SummonerBoost";
+                break;
+            case 3:
+                summonerSpellName = "SummonerExhaust";
+                break;
+            case 4:
+                summonerSpellName = "SummonerFlash";
+                break;
+            case 6:
+                summonerSpellName = "SummonerHaste";
+                break;
+            case 7:
+                summonerSpellName = "SummonerHeal";
+                break;
+            case 11:
+                summonerSpellName = "SummonerSmite";
+                break;
+            case 12:
+                summonerSpellName = "SummonerTeleport";
+                break;
+            case 13:
+                summonerSpellName = "SummonerMana";
+                break;
+            case 14:
+                summonerSpellName = "SummonerDot";
+                break;
+            case 21:
+                summonerSpellName = "SummonerBarrier";
+                break;
+            case 30:
+                summonerSpellName = "SummonerPoroRecall";
+                break;
+            case 31:
+                summonerSpellName = "SummonerPoroThrow";
+                break;
+            case 32:
+                summonerSpellName = "SummonerSnowball";
+                break;
+            case 39:
+                summonerSpellName = "SummonerSnowURFSnowball_Mark";
+                break;
+
+            default:
+                summonerSpellName = "Summoner_UltBookPlaceholder";
+        }
+        return summonerSpellName;
     }
 
-    public void setSummonerName(String summonerName) {
-        this.summonerName = summonerName;
+
+    public String getSummonerName() {
+        return summonerName;
     }
 
     public String getChampLevel() {
         return champLevel;
     }
 
-    public void setChampLevel(String champLevel) {
-        this.champLevel = champLevel;
-    }
-
     public String getChampionName() {
         return championName;
     }
 
-    public void setChampionName(String championName) {
-        this.championName = championName;
-    }
-
-    public String getKills() {
-        return kills;
-    }
-
-    public void setKills(String kills) {
-        this.kills = kills;
-    }
+    public String getKills() {return kills;}
 
     public String getDeaths() {
         return deaths;
-    }
-
-    public void setDeaths(String deaths) {
-        this.deaths = deaths;
     }
 
     public String getAssists() {
         return assists;
     }
 
-    public void setAssists(String assists) {
-        this.assists = assists;
-    }
-
     public int getGoldEarned() {
         return goldEarned;
-    }
-
-    public void setGoldEarned(int goldEarned) {
-        this.goldEarned = goldEarned;
     }
 
     public int getTotalMinionsKilled() {
         return totalMinionsKilled;
     }
 
-    public void setTotalMinionsKilled(int totalMinionsKilled) {
-        this.totalMinionsKilled = totalMinionsKilled;
-    }
-
-    public String getSummoner1Id() {
+    public int getSummoner1Id() {
         return summoner1Id;
     }
 
-    public void setSummoner1Id(String summoner1Id) {
-        this.summoner1Id = summoner1Id;
-    }
-
-    public String getSummoner2Id() {
+    public int getSummoner2Id() {
         return summoner2Id;
     }
 
-    public void setSummoner2Id(String summoner2Id) {
-        this.summoner2Id = summoner2Id;
+    public String getSummoner1Name(){
+        return getSummonerSpellName(summoner1Id);
+    }
+
+    public String getSummoner2Name(){
+        return getSummonerSpellName(summoner2Id);
     }
 
     public boolean isWin() {
         return win;
     }
 
-    public void setWin(boolean win) {
-        this.win = win;
-    }
-
     public int getItem0() {
         return item0;
-    }
-
-    public void setItem0(int item0) {
-        this.item0 = item0;
     }
 
     public int getItem1() {
         return item1;
     }
 
-    public void setItem1(int item1) {
-        this.item1 = item1;
-    }
-
     public int getItem2() {
         return item2;
-    }
-
-    public void setItem2(int item2) {
-        this.item2 = item2;
     }
 
     public int getItem3() {
         return item3;
     }
 
-    public void setItem3(int item3) {
-        this.item3 = item3;
-    }
-
     public int getItem4() {
         return item4;
-    }
-
-    public void setItem4(int item4) {
-        this.item4 = item4;
     }
 
     public int getItem5() {
         return item5;
     }
 
-    public void setItem5(int item5) {
-        this.item5 = item5;
-    }
-
     public int getItem6() {
         return item6;
     }
 
-    public void setItem6(int item6) {
-        this.item6 = item6;
-    }
 }

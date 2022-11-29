@@ -8,15 +8,24 @@
     tools:context=".displayMatch.MatchActivity">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/blueBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Blue Team" />
+        android:layout_margin="5dp"
+        android:backgroundTint="@color/blue"
+        android:text="@string/blueBtn" />
+
+    <Button
+        android:id="@+id/redBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:backgroundTint="@color/red"
+        android:text="@string/redBtn" />
 
     <FrameLayout
         android:id="@+id/matchDetailsContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"/>
 
-    </FrameLayout>
 </LinearLayout>

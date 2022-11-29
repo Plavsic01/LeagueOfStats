@@ -57,14 +57,16 @@ public class MatchRecyclerViewAdapter extends RecyclerView.Adapter<MatchRecycler
             }
         });
 
+
+
         Picasso.get().load(Constants.Champion.CHAMPION_ICON_URL + matches.get(position).getCurrentPlayer().getChampionName() + ".png").into(holder.champIcon);
-        Picasso.get().load(Constants.Champion.CHAMPION_ITEM_URL + matches.get(position).getCurrentPlayer().getItem0() + ".png").into(holder.item0);
-        Picasso.get().load(Constants.Champion.CHAMPION_ITEM_URL + matches.get(position).getCurrentPlayer().getItem1() + ".png").into(holder.item1);
-        Picasso.get().load(Constants.Champion.CHAMPION_ITEM_URL + matches.get(position).getCurrentPlayer().getItem2() + ".png").into(holder.item2);
-        Picasso.get().load(Constants.Champion.CHAMPION_ITEM_URL + matches.get(position).getCurrentPlayer().getItem3() + ".png").into(holder.item3);
-        Picasso.get().load(Constants.Champion.CHAMPION_ITEM_URL + matches.get(position).getCurrentPlayer().getItem4() + ".png").into(holder.item4);
-        Picasso.get().load(Constants.Champion.CHAMPION_ITEM_URL + matches.get(position).getCurrentPlayer().getItem5() + ".png").into(holder.item5);
-        Picasso.get().load(Constants.Champion.CHAMPION_ITEM_URL + matches.get(position).getCurrentPlayer().getItem6() + ".png").into(holder.item6);
+        Picasso.get().load(Constants.Champion.CHAMPION_ITEM_URL + matches.get(position).getCurrentPlayer().getItem0() + ".png").placeholder(ctx.getResources().getDrawable(R.drawable.missing_item_icon)).into(holder.item0);
+        Picasso.get().load(Constants.Champion.CHAMPION_ITEM_URL + matches.get(position).getCurrentPlayer().getItem1() + ".png").placeholder(ctx.getResources().getDrawable(R.drawable.missing_item_icon)).into(holder.item1);
+        Picasso.get().load(Constants.Champion.CHAMPION_ITEM_URL + matches.get(position).getCurrentPlayer().getItem2() + ".png").placeholder(ctx.getResources().getDrawable(R.drawable.missing_item_icon)).into(holder.item2);
+        Picasso.get().load(Constants.Champion.CHAMPION_ITEM_URL + matches.get(position).getCurrentPlayer().getItem3() + ".png").placeholder(ctx.getResources().getDrawable(R.drawable.missing_item_icon)).into(holder.item3);
+        Picasso.get().load(Constants.Champion.CHAMPION_ITEM_URL + matches.get(position).getCurrentPlayer().getItem4() + ".png").placeholder(ctx.getResources().getDrawable(R.drawable.missing_item_icon)).into(holder.item4);
+        Picasso.get().load(Constants.Champion.CHAMPION_ITEM_URL + matches.get(position).getCurrentPlayer().getItem5() + ".png").placeholder(ctx.getResources().getDrawable(R.drawable.missing_item_icon)).into(holder.item5);
+        Picasso.get().load(Constants.Champion.CHAMPION_ITEM_URL + matches.get(position).getCurrentPlayer().getItem6() + ".png").placeholder(ctx.getResources().getDrawable(R.drawable.missing_item_icon)).into(holder.item6);
 
     }
 
