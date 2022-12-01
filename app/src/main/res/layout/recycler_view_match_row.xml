@@ -7,7 +7,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="409dp"
+        android:layout_width="405dp"
         android:layout_height="wrap_content"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="false"
@@ -24,7 +24,7 @@
                 android:id="@+id/champIcon"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

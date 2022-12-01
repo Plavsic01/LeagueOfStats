@@ -15,6 +15,8 @@ import com.example.leagueofstats.R;
 import com.example.leagueofstats.model.match.Match;
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
+
 public class MatchDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MatchDetailsRecyclerViewAdapter.MyViewHolder>{
 
     private Context ctx;
@@ -63,8 +65,13 @@ public class MatchDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MatchD
         holder.deaths.setText(match.getParticipants().get(position).getDeaths());
         holder.assists.setText(match.getParticipants().get(position).getAssists());
 
-        holder.minionsKilled.setText(" " + Integer.toString(match.getParticipants().get(position).getTotalMinionsKilled()) + " ");
-        holder.goldEarned.setText(Integer.toString(match.getParticipants().get(position).getGoldEarned()));
+        holder.minionsKilled.setText(Integer.toString(match.getParticipants().get(position).getTotalMinionsKilled()) + " ");
+
+        double goldEarned = (double) match.getParticipants().get(position).getGoldEarned();
+        DecimalFormat formatter = new DecimalFormat("#,###");
+        String goldEarnedFormatted = formatter.format(goldEarned);
+
+        holder.goldEarned.setText(goldEarnedFormatted);
 
     }
 

@@ -140,7 +140,9 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="visible"
+                tools:visibility="visible">
 
                 <TextView
                     android:id="@+id/sumName"
@@ -149,11 +151,19 @@
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-black" />
 
+                <ImageView
+                    android:id="@+id/kdaIcon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:paddingTop="3dp"
+                    app:srcCompat="@drawable/score" />
+
                 <TextView
                     android:id="@+id/killsLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-black" />
 
@@ -186,13 +196,33 @@
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-black" />
 
+                <ImageView
+                    android:id="@+id/csIcon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:paddingStart="6dp"
+                    android:paddingTop="2dp"
+                    app:srcCompat="@drawable/minion" />
+
                 <TextView
                     android:id="@+id/minionsKilled"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
                     android:layout_weight="1"
-                    android:fontFamily="sans-serif-black" />
+                    android:fontFamily="sans-serif-black"
+                    tools:text="82" />
+
+                <ImageView
+                    android:id="@+id/csIcon2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:paddingBottom="4dp"
+                    app:srcCompat="@drawable/coin_img" />
 
                 <TextView
                     android:id="@+id/goldEarned"
@@ -201,6 +231,7 @@
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-black" />
             </LinearLayout>
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
