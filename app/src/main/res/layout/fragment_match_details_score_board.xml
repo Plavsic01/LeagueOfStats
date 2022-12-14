@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".displayMatch.MatchDetailsScoreBoardFragment" >
+
+    <TextView
+        android:id="@+id/winLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:textSize="16sp"
+        tools:text="Victory" />
+
+    <TextView
+        android:id="@+id/gameDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/baronIcon"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="1dp"
+        android:layout_weight="1"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/baronKills"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/dragonIcon"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="1dp"
+        android:layout_weight="1"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/dragonKills"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/towerIcon"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="1dp"
+        android:layout_weight="1"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/towerKills"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="16sp" />
+
+</LinearLayout>

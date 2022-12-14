@@ -43,8 +43,8 @@ public class RankedRecyclerViewAdapter extends RecyclerView.Adapter<RankedRecycl
         holder.rankedIcon.setImageResource(rankedData.get(position).getRankImg());
         holder.rankedType.setText(rankedData.get(position).getQueueType());
         holder.rankedTierRank.setText(rankedData.get(position).getTier() + " " + rankedData.get(position).getRank());
-        holder.rankedPoints.setText(rankedData.get(position).getLeaguePoints() + "LP");
-        holder.rankedWinsLossses.setText(rankedData.get(position).getWins() + "W" + rankedData.get(position).getLosses() + "L");
+        holder.rankedPoints.setText(rankedData.get(position).getLeaguePoints() + " LP");
+        holder.rankedWinsLossses.setText(rankedData.get(position).getWins() + "W " + rankedData.get(position).getLosses() + "L");
         holder.rankedWinRate.setText(rankedData.get(position).getWinRate());
 
     }

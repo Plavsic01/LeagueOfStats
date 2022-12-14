@@ -14,7 +14,6 @@ public class Participant implements Serializable {
     private int totalMinionsKilled;
     private int summoner1Id;
     private int summoner2Id;
-    private boolean win;
 
     private int item0;
     private int item1;
@@ -24,8 +23,10 @@ public class Participant implements Serializable {
     private int item5;
     private int item6;
 
+    private boolean win;
 
-    public Participant(String summonerName, String champLevel, String championName, String kills, String deaths, String assists, int goldEarned, int totalMinionsKilled, int summoner1Id, int summoner2Id, boolean win, int item0, int item1, int item2, int item3, int item4, int item5, int item6) {
+
+    public Participant(String summonerName, String champLevel, String championName, String kills, String deaths, String assists, int goldEarned, int totalMinionsKilled, int summoner1Id, int summoner2Id,int item0, int item1, int item2, int item3, int item4, int item5, int item6,boolean win) {
         this.summonerName = summonerName;
         this.champLevel = champLevel;
         this.championName = championName;
@@ -36,7 +37,6 @@ public class Participant implements Serializable {
         this.totalMinionsKilled = totalMinionsKilled;
         this.summoner1Id = summoner1Id;
         this.summoner2Id = summoner2Id;
-        this.win = win;
         this.item0 = item0;
         this.item1 = item1;
         this.item2 = item2;
@@ -44,6 +44,7 @@ public class Participant implements Serializable {
         this.item4 = item4;
         this.item5 = item5;
         this.item6 = item6;
+        this.win = win;
     }
 
 
@@ -146,9 +147,6 @@ public class Participant implements Serializable {
         return getSummonerSpellName(summoner2Id);
     }
 
-    public boolean isWin() {
-        return win;
-    }
 
     public int getItem0() {
         return item0;
@@ -178,4 +176,7 @@ public class Participant implements Serializable {
         return item6;
     }
 
+    public boolean isWin() {
+        return win;
+    }
 }

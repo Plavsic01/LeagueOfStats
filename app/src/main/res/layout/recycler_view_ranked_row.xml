@@ -2,12 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="200dp"
+    android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:elevation="0dp"
+        app:cardElevation="0dp"
+        app:cardMaxElevation="0dp"
         app:cardPreventCornerOverlap="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,15 +19,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/rankedIcon"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="15dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="20dp"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
@@ -33,7 +36,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#000000" />
 
             <TextView
                 android:id="@+id/rankedTierRank"
@@ -41,7 +45,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#000000" />
 
             <TextView
                 android:id="@+id/rankedPoints"
@@ -49,7 +54,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#000000" />
 
             <TextView
                 android:id="@+id/rankedWinsLosses"
@@ -57,15 +63,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#000000" />
 
             <TextView
                 android:id="@+id/rankedWinRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="80dp"
                 android:gravity="center"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#000000" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

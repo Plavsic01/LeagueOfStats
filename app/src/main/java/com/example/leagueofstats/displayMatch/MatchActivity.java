@@ -1,6 +1,7 @@
 package com.example.leagueofstats.displayMatch;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -9,8 +10,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.leagueofstats.MainActivity;
 import com.example.leagueofstats.R;
 import com.example.leagueofstats.displayRanked.RankedFragment;
+import com.example.leagueofstats.displaySummoner.SummonerActivity;
 import com.example.leagueofstats.model.match.Match;
 
 public class MatchActivity extends AppCompatActivity {
@@ -50,11 +53,11 @@ public class MatchActivity extends AppCompatActivity {
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 RedTeamFragment redTeamFragment = RedTeamFragment.newInstance(currentMatch);
-                System.out.println("red dugmeasdasdsa");
                 fragmentTransaction.replace(R.id.matchDetailsContainer,redTeamFragment).commit();
             }
         });
 
 
     }
+
 }

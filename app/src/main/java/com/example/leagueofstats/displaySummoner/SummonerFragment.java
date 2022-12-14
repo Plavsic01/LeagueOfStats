@@ -3,6 +3,8 @@ package com.example.leagueofstats.displaySummoner;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import com.example.leagueofstats.Constants;
 import com.example.leagueofstats.R;
 import com.example.leagueofstats.displayRanked.RankedActivity;
+import com.example.leagueofstats.model.connection.ConnectionManager;
 import com.example.leagueofstats.model.summoner.Summoner;
 import com.squareup.picasso.Picasso;
 
@@ -53,14 +56,20 @@ public class SummonerFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_summoner, container, false);
+        return view;
+    }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         summonerIcon = view.findViewById(R.id.summonerIcon);
         summonerName = view.findViewById(R.id.summonerName);
         summonerLevel = view.findViewById(R.id.summonerLevel);
         rankedInfo = view.findViewById(R.id.rankedInfoBtn);
 
         // rankedInfo je stavljen na GONE u designeru
-        rankedInfo.setVisibility(View.VISIBLE);
+        if(ConnectionManager.getConnectivityNetworkStatus(getContext()) != 0){
+            rankedInfo.setVisibility(View.VISIBLE);
+        }
 
         summonerName.setText(summoner.getName());
         summonerLevel.setText("Level: " + summoner.getSummonerLevel());
@@ -74,6 +83,5 @@ public class SummonerFragment extends Fragment {
         });
         Picasso.get().load(Constants.Summoner.SUMMONER_ICON_URL + summoner.getProfileIconId() + ".png").into(summonerIcon);
 
-        return view;
     }
 }

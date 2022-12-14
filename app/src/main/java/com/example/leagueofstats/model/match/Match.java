@@ -1,5 +1,7 @@
 package com.example.leagueofstats.model.match;
 
+import android.text.format.DateUtils;
+
 import com.example.leagueofstats.model.summoner.Summoner;
 
 import java.io.Serializable;
@@ -13,61 +15,47 @@ public class Match implements Serializable {
     private int gameEndTimestamp;
     private Summoner summoner;
     private ArrayList<Participant> participants = new ArrayList<Participant>();
+    private ArrayList<MatchObjectives> matchObjectives = new ArrayList<MatchObjectives>();
 
 
-    public Match(int gameCreation, int gameDuration, int gameStartTimestamp, int gameEndTimestamp, Summoner summoner, ArrayList<Participant> participants) {
+    public Match(int gameCreation, int gameDuration, int gameStartTimestamp, int gameEndTimestamp, Summoner summoner,
+                 ArrayList<Participant> participants,ArrayList<MatchObjectives> matchObjectives) {
         this.gameCreation = gameCreation;
         this.gameDuration = gameDuration;
         this.gameStartTimestamp = gameStartTimestamp;
         this.gameEndTimestamp = gameEndTimestamp;
         this.summoner = summoner;
         this.participants = participants;
+        this.matchObjectives = matchObjectives;
     }
 
     public int getGameCreation() {
         return gameCreation;
     }
 
-    public void setGameCreation(int gameCreation) {
-        this.gameCreation = gameCreation;
-    }
-
     public int getGameDuration() {
         return gameDuration;
-    }
-
-    public void setGameDuration(int gameDuration) {
-        this.gameDuration = gameDuration;
     }
 
     public int getGameStartTimestamp() {
         return gameStartTimestamp;
     }
 
-    public void setGameStartTimestamp(int gameStartTimestamp) {
-        this.gameStartTimestamp = gameStartTimestamp;
-    }
-
     public int getGameEndTimestamp() {
         return gameEndTimestamp;
-    }
-
-    public void setGameEndTimestamp(int gameEndTimestamp) {
-        this.gameEndTimestamp = gameEndTimestamp;
     }
 
     public Summoner getSummoner() {
         return summoner;
     }
 
-    public void setSummoner(Summoner summoner) {
-        this.summoner = summoner;
-    }
-
     public ArrayList<Participant> getParticipants() {
         return participants;
     }
 
+    public ArrayList<MatchObjectives> getMatchObjectives() {
+        return matchObjectives;
+    }
 
     public Participant getCurrentPlayer(){
         Participant player = null;
@@ -77,6 +65,12 @@ public class Match implements Serializable {
             }
         }
         return player;
+    }
+
+    public String calcGameDuration(){
+        long timeInSeconds = ((getGameEndTimestamp() / 1000) - (getGameStartTimestamp() / 1000));
+        String gameDuration = DateUtils.formatElapsedTime(timeInSeconds);
+        return gameDuration;
     }
 
 }

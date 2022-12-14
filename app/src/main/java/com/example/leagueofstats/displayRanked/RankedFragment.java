@@ -2,6 +2,8 @@ package com.example.leagueofstats.displayRanked;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,13 +11,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.android.volley.NoConnectionError;
+import com.android.volley.VolleyError;
 import com.example.leagueofstats.R;
-import com.example.leagueofstats.model.match.Match;
 import com.example.leagueofstats.model.ranked.Ranked;
 import com.example.leagueofstats.model.ranked.RankedCallBack;
 import com.example.leagueofstats.model.ranked.RankedManager;
 import com.example.leagueofstats.model.summoner.Summoner;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -53,17 +59,21 @@ public class RankedFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_ranked, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerViewRanked);
-        rankedRecyclerViewAdapter = new RankedRecyclerViewAdapter(getContext(),rankedData);
-        recyclerView.setAdapter(rankedRecyclerViewAdapter);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        fetchRankedStats();
         return view;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerViewRanked);
+        TextView connectionError = view.findViewById(R.id.connectionError);
+        rankedRecyclerViewAdapter = new RankedRecyclerViewAdapter(getContext(),rankedData);
+        recyclerView.setAdapter(rankedRecyclerViewAdapter);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        fetchRankedStats(connectionError);
+    }
 
-    private void fetchRankedStats(){
+    private void fetchRankedStats(TextView connectionError){
         RankedManager.fetchRankedStats(summoner,getContext(), new RankedCallBack() {
             @Override
             public void onSuccess(Ranked result) {
@@ -72,8 +82,11 @@ public class RankedFragment extends Fragment {
             }
 
             @Override
-            public void onError(String error) {
-                System.out.println(error);
+            public void onError(VolleyError error) {
+                if(error instanceof NoConnectionError){
+                    connectionError.setVisibility(View.VISIBLE);
+                    connectionError.setText(R.string.noInternetConnectionError);
+                }
             }
         });
     }

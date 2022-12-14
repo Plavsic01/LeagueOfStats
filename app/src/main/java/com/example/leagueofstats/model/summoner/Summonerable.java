@@ -1,7 +1,9 @@
 package com.example.leagueofstats.model.summoner;
 
 
-public interface Summonerable {
+import com.android.volley.VolleyError;
 
-    void summonerData(Summoner summoner);
+public interface Summonerable {
+    void onCompleteSummonerData(Summoner summoner);
+    void onErrorSummonerData(VolleyError error);
 }

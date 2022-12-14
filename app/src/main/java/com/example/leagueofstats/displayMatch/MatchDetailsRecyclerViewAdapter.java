@@ -60,7 +60,7 @@ public class MatchDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MatchD
         Picasso.get().load(Constants.Champion.CHAMPION_ITEM_URL + match.getParticipants().get(position).getItem6() + ".png").placeholder(ctx.getResources().getDrawable(R.drawable.missing_item_icon)).into(holder.item6);
 
         holder.sumName.setText(match.getParticipants().get(position).getSummonerName() + "  ");
-
+        holder.champLevel.setText(match.getParticipants().get(position).getChampLevel());
         holder.kills.setText(match.getParticipants().get(position).getKills());
         holder.deaths.setText(match.getParticipants().get(position).getDeaths());
         holder.assists.setText(match.getParticipants().get(position).getAssists());
@@ -88,6 +88,7 @@ public class MatchDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MatchD
         public ImageView summonerD;
         public ImageView summonerF;
 
+
         public ImageView item0;
         public ImageView item1;
         public ImageView item2;
@@ -96,6 +97,7 @@ public class MatchDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MatchD
         public ImageView item5;
         public ImageView item6;
 
+        public TextView champLevel;
         public TextView sumName;
         public TextView kills;
         public TextView deaths;
@@ -122,6 +124,7 @@ public class MatchDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MatchD
             item6 = itemView.findViewById(R.id.detailsItem6);
 
             sumName = itemView.findViewById(R.id.sumName);
+            champLevel = itemView.findViewById(R.id.champLevel);
             kills = itemView.findViewById(R.id.killsLabel);
             deaths = itemView.findViewById(R.id.deathsLabel);
             assists = itemView.findViewById(R.id.assistsLabel);

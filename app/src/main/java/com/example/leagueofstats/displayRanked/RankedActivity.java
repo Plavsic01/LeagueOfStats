@@ -26,4 +26,5 @@ public class RankedActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.rankedFrameLayout,rankedFragment).commit();
 
     }
+
 }

@@ -1,20 +1,14 @@
 <resources>
-    <string name="app_name">LeagueOfStats</string>
+    <string name="app_name">League Of Stats</string>
     <string name="search_list">Search Summoner Name</string>
     <string name="ranked_info">Ranked Info</string>
 
     <string name="blueBtn">Blue Team</string>
     <string name="redBtn">Red Team</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_ranked">RankedActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="noInternetConnectionError">Please check your Internet connection.</string>
+    <string name="noGamesRecordedError">There is no recent games recorded for this summoner.</string>
+    <string name="requestError">Too many requests, please try again in a few minutes</string>
+    <string name="jsonError">Error while parsing JSON data</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>
