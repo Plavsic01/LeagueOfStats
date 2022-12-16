@@ -57,7 +57,6 @@ public class MatchActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
 }

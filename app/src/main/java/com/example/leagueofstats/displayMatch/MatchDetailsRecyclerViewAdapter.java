@@ -1,6 +1,7 @@
 package com.example.leagueofstats.displayMatch;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.leagueofstats.Constants;
 import com.example.leagueofstats.R;
+import com.example.leagueofstats.displaySummoner.SummonerActivity;
 import com.example.leagueofstats.model.match.Match;
 import com.squareup.picasso.Picasso;
 
@@ -73,6 +76,15 @@ public class MatchDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MatchD
 
         holder.goldEarned.setText(goldEarnedFormatted);
 
+        holder.summonerCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ctx, SummonerActivity.class);
+                i.putExtra("searchedSummoner",holder.sumName.getText());
+                ctx.startActivity(i);
+            }
+        });
+
     }
 
     @Override
@@ -83,6 +95,7 @@ public class MatchDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MatchD
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
 
+        public CardView summonerCard;
         public ImageView champIcon;
 
         public ImageView summonerD;
@@ -110,6 +123,7 @@ public class MatchDetailsRecyclerViewAdapter extends RecyclerView.Adapter<MatchD
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            summonerCard = itemView.findViewById(R.id.showSummoner);
             champIcon = itemView.findViewById(R.id.summonerIcon);
 
             summonerD = itemView.findViewById(R.id.summonerD);

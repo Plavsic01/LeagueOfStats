@@ -6,6 +6,7 @@
     android:layout_height="100dp">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/showSummoner"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="0dp"

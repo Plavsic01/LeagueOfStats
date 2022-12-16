@@ -36,11 +36,13 @@ public class SummonerActivity extends AppCompatActivity implements Summonerable 
 
     @Override
     public void onBackPressed() {
-        Intent mainActivity = new Intent(this,MainActivity.class);
-        startActivity(mainActivity);
+//        Intent mainActivity = new Intent(this,MainActivity.class);
+//        mainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        startActivity(mainActivity);
         databaseHelper.close();
         finish();
     }
+
 
     @Override
     public void onCompleteSummonerData(Summoner summoner) {

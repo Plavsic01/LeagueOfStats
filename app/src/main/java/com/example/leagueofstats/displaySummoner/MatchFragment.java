@@ -71,10 +71,10 @@ public class MatchFragment extends Fragment implements SelectListener {
         recyclerView.setAdapter(matchRecyclerViewAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
-        fetchMatches(matchErrorLabel);
+        fetchMatches(recyclerView,matchErrorLabel);
     }
 
-    public void fetchMatches(TextView matchErrorLabel){
+    public void fetchMatches(RecyclerView recyclerView,TextView matchErrorLabel){
         MatchManager.fetchMatches(summoner, getContext(), new MatchCallBack() {
             @Override
             public void onSuccess(Match result) {
@@ -99,6 +99,7 @@ public class MatchFragment extends Fragment implements SelectListener {
                     try {
                         int statusCode = error.networkResponse.statusCode;
                         if(statusCode == 429){
+                            recyclerView.setVisibility(View.INVISIBLE);
                             matchErrorLabel.setText(R.string.requestError);
                         }else{
                             Toast.makeText(getContext(),"Error " + statusCode, Toast.LENGTH_SHORT).show();
